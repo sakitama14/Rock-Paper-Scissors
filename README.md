@@ -12,5 +12,5 @@ https://www.sejuku.net/blog/22432
 - 吐き出された数字に対応する文字列の表示
 
 ## 次回やること
-https://www.theodinproject.com/lessons/foundations-rock-paper-scissors
+https://www.theodinproject.com/lessons/foundations-rock-paper-scissors  
 └Step 3: Write the logic to get the human choice
