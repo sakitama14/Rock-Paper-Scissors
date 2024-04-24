@@ -1,13 +1,3 @@
-// Proceedure（自分が最初に浮かんだもの）
-// math.randomを使用し、0,1,2のどれかを吐き出させる
-// 0,1,2に対してそれぞれRock, Paper, Scissorsを割り振ってそれを表示させる
-
-
-// let getComputerChoice01 = Math.floor(Math.random()*3 + 1);
-// console.log(getComputerChoice);
-
-
-
 // コンピューター側でランダムのパターンを吐き出す
 // まずはそれぞれのパターンを配列に入れる
 const choices = ['Rock', 'Paper', 'Scissors'];
@@ -22,34 +12,63 @@ function getComputerChoice() {
 
     // 配列の中から関数で吐き出された数字の物だけを表示
     console.log(choices[choice]);
+    return choices[choice];
 }
-
-getComputerChoice();
 
 // プレイヤーに入力をしてもらい結果を表示する
 function getHumanChoice () {
 
     // プレイヤーに文字を入力してもらう
-    let playerChoice = prompt("Please enter Rock, Paper, or Scissors:", "");
+    let humanChoice = prompt("Please enter Rock, Paper, or Scissors:", "");
+
+    // 入力された文字の最初を大文字に、それ以外を小文字に変換
+    humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
 
     // もし入力された値がRock, Paper, or Scissorsと一致した場合はコンソールに表示
-    if (playerChoice === "Rock" || playerChoice === "Paper" || playerChoice === "Scissors") {
-        console.log(playerChoice);
+    if (humanChoice === "Rock" || humanChoice === "Paper" || humanChoice === "Scissors") {
+        return humanChoice;
     
     // それ以外の場合は"Invalid input. Please enter Rock, Paper, or Scissors."とコンソールに表示
     } else {
         console.log("Invalid input. Please enter Rock, Paper, or Scissors.")
+        return getHumanChoice()
     };
 }
 
-getHumanChoice();
+// ラウンドをプレイし結果を表示
+function playRound(humanChoice, computerChoice) {
+    // ここに勝敗判定のロジックを追加する
 
-function playRound() {
-    console.log(playerChoice);
+    if (humanChoice === computerChoice) {
+        console.log("It's a tie game!!")
+    } else if (
+        (humanChoice === "Rock" && computerChoice === "Scissors") ||
+        (humanChoice === "Scissors" && computerChoice === "Paper") ||
+        (humanChoice === "Paper" && computerChoice === "Rock") 
+    ) {
+        console.log("You win!!");
+        humanScore = humanScore + 1;
+    } else {
+        console.log("You lose!!");
+        computerScore = computerScore + 1;
+    };
 
+    console.log(`Human Choice: ${humanChoice}`);
+    console.log(`Computer Choice: ${computerChoice}`);
+    console.log(humanScore);
+    console.log(computerScore);
+    
 }
 
-playRound();
+// 実際にゲームを実行する関数
+function playGame() {
+    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+}
+
+// ゲーム開始
+playGame();  
 
 
 
