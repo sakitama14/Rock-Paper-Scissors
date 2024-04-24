@@ -13,4 +13,6 @@ https://www.sejuku.net/blog/22432
 
 ## 次回やること
 https://www.theodinproject.com/lessons/foundations-rock-paper-scissors
-└Step 3: Write the logic to get the human choice
+└Step 5: Write the logic to play a single round
+
+- 他のスコープに入っている変数を他のスコープでどのように使うか（コンピューター、インプットの情報）
